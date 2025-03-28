@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+  
   has_many :events, foreign_key: :organizer_id, dependent: :nullify
   has_many :bookings, foreign_key: :customer_id, dependent: :nullify
 
