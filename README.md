@@ -40,7 +40,7 @@ Ensure you have the following installed:
 
 Additional Information
 
-Please check the shared documentation.
+Please check the API shared documentation.
 
 You can import the shared Postman collection file to Postman to make it easy to test the APIs.
 
