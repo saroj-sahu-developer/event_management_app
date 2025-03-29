@@ -1,24 +1,40 @@
-# README
+# Event Booking App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+Ensure you have the following installed:
 
-* Ruby version
+- **Ruby** (Version 3.0.0)
+- **Rails** (Version 7.1.5.1)
+- **Bundler** (`gem install bundler`)
+- **SQLite**
+- **Redis** (for Sidekiq background jobs)
 
-* System dependencies
+## Instructions to Follow
 
-* Configuration
+1. Open your terminal in a folder.
+2. Run the following commands:
+   ```sh
+   git init
+   git clone https://github.com/saroj-sahu-developer/event_management_app
+   cd event_management_app
+   bundle install
+   rails db:migrate
+   rails s
+   ```
+3. Now the Rails app will run, and you can test the APIs in Postman.
 
-* Database creation
+## To Check Asynchronous Jobs
 
-* Database initialization
+1. Run the Redis server.
+2. Update `config/initializers/sidekiq.rb` file as per your Redis server port.
+3. In the project directory, run:
+   ```sh
+   bundle exec sidekiq
+   ```
+4. To test in Rails console, you can run:
+   ```sh
+   EventUpdateNotificationJob.new.perform(<event_id>)
+   TicketConfirmationJob.new.perform(<booking_id>)
+   ```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
