@@ -1,5 +1,6 @@
 class Ticket < ApplicationRecord
   belongs_to :event
+  has_many :bookings, dependent: :destroy
 
   enum ticket_type: { general: 0, vip: 1, premium: 2 }
 

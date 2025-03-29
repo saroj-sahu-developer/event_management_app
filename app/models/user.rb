@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :name, :email, :role, presence: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :role, inclusion: { in: %w(customer, organizer), message: "must be 'customer' or 'organizer'" }
+  validates :role, inclusion: { in: ["customer", "organizer"], message: "must be 'customer' or 'organizer'" }
 
   def organizer?
     role == 'organizer'

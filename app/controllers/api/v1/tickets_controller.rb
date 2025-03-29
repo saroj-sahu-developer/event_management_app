@@ -51,7 +51,7 @@ module Api
       end
 
       def ticket
-        @_ticket ||= event.tickets.find(params[:id])
+        @_ticket ||= Ticket.find(params[:id])
       end
     end
   end

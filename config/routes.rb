@@ -15,7 +15,9 @@ Rails.application.routes.draw do
         post :login
       end
       resources :events do
-        resources :tickets
+        resources :tickets, shallow: true do
+          resources :bookings, shallow: true
+        end
       end
     end
   end
