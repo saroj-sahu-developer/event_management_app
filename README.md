@@ -38,3 +38,13 @@ Ensure you have the following installed:
    TicketConfirmationJob.new.perform(<booking_id>)
    ```
 
+Additional Information
+
+Please check the shared documentation.
+
+You can import the shared Postman collection file to Postman to make it easy to test the APIs.
+
+
+
+
+
