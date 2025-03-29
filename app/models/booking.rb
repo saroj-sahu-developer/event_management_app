@@ -10,6 +10,8 @@ class Booking < ApplicationRecord
   after_create :reduce_ticket_quantity
   after_destroy :restore_ticket_quantity
 
+  after_create :schedule_email_confirmation
+  
   private
 
   def calculate_total_price
@@ -29,5 +31,9 @@ class Booking < ApplicationRecord
     if ticket.quantity_available < quantity
       errors.add(:quantity, "only #{ticket.quantity_available} tickets available.")
     end
+  end
+
+  def schedule_email_confirmation
+    TicketConfirmationJob.perform_in(1.minute, id)
   end
 end

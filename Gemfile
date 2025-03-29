@@ -24,6 +24,7 @@ gem "puma", ">= 5.0"
 gem "bcrypt", "~> 3.1.7"
 gem 'jwt'
 gem 'pundit'
+gem 'sidekiq'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]

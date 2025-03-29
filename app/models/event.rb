@@ -4,4 +4,12 @@ class Event < ApplicationRecord
   has_many :bookings, dependent: :nullify
 
   validates :name, :date, :venue, presence: true
+
+  after_update_commit :notify_customers
+
+  private
+
+  def notify_customers
+    EventUpdateNotificationJob.perform_async(id)
+  end
 end
