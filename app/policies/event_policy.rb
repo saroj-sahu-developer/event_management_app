@@ -13,7 +13,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    user.organizer?
+    user.organizer? && record.organizer_id == user.id
   end
 
   def update?

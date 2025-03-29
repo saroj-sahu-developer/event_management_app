@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       namespace :authentication do
         post :login
       end
-      resources :events
+      resources :events do
+        resources :tickets
+      end
     end
   end
 

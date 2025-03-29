@@ -1,8 +1,6 @@
 module Api
   module V1
     class EventsController < ApplicationController
-      before_action :authorize_request
-
       # GET /api/v1/events
       def index
         events = policy_scope(Event)
@@ -18,7 +16,7 @@ module Api
       def create
         event = current_user.events.build(event_params)
 
-        autrhorize event
+        authorize event
 
         if event.save
           render json: { success: true, message: "Event created successfully.", event: event }, status: :created
